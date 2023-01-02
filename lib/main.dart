@@ -1,100 +1,104 @@
+// import: бир файлдан коддорду алуу
 import 'package:flutter/material.dart';
 
+// void: main функциясынын туру. Эч нерсе кайтарып бербейт
+// main: main функциянын аты
+// (): main дин функция экендигин билгизет. main функциясынын параметрин жасабыз
+// {}: main функциясынын денеси. main функциясын аткарган жумушу жазылат
 void main() {
+  // runApp: функция тиркемени жургузуп берет const MyApp()
+  // const: озгорбойт
+  // MyApp: class тын аты
   runApp(const MyApp());
 }
 
+// class: class бул keyword. class менен dart ка тушунук киргизебиз.
+// extends: parent class тан child class ка мурас алат
+// StatelessWidget: ====> ?
+// super: child class proporty лерин parent class ка откорот
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
+// @override: parent class тагы method ду child class та озгортуп жазат
   @override
+// Widget: build функциясынын туру
+// build: build функциясынын аты
+// (BuildContext context): build функциясынын параметри
   Widget build(BuildContext context) {
+    // return: кайтарып беруу
+    // MaterialApp: ===> ?
     return MaterialApp(
+      // title: MaterialApp proporty си , Озуно текст алат
       title: 'Flutter Demo',
+      // theme: MaterialApp proporty си , Озуно ThemeData алат
+      // ThemeData: бул бир Widget
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
+        // primarySwatch: ThemeData proporty си, Озуно Color алат
         primarySwatch: Colors.blue,
       ),
+      // home: MaterialApp proporty си, Озуно Widget алат
+      // MyHomePage: бул бир class
+      // title: MyHomePage proporty си, Озуно String алат
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
+// StatefulWidget ===> ?
 class MyHomePage extends StatefulWidget {
+  // required: созсуз беришибиз керек
   const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
+// final: акыркы маанини алат. Озгортсок болбойт
   final String title;
+// @override: parent class тагы method ду child class та озгортуп жазат
 
   @override
+// State ===> ?
+// createState: функция.
+// () =>: стрелкалуу функция
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+// <>: generic
 class _MyHomePageState extends State<MyHomePage> {
+  // int: тур, озуно бутун сан алат. _counter дин туру
+  // _counter: озгормонун вты\
+  // =: ыйгаруу
   int _counter = 0;
 
+// void: _incrementCounter функциясынын туру. Эч нерсе кайтарып бербейт
   void _incrementCounter() {
+    // setState: бул метод. build методун кайрадан иштетип берет. Экранды бузуп куруп берет
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
       _counter++;
     });
   }
 
+// @override: parent class тагы method ду child class та озгортуп жазат
   @override
+  // Widget: class
+  // build: функция. куруп беруу
+  // BuildContext context: даректоо
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    // return: кайтарып беруу
+    // Scaffold: виджет. Экран
     return Scaffold(
+      // appBar: Scaffold тун proportysi.
+      // AppBar: Widget. Тиркеменин шапкасы
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
+        // title: AppBar тун proportysi
+        // Text: Widget. Экранга текст чыгарат
+        // widget.title: Text ке маани берилди
         title: Text(widget.title),
       ),
+      // body: Scaffold тун proportysi. Тиркеменин денеси
+      // Center: Widget.Widgetти сентрге жайгаштырып берет
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+        // child: Center дин proportysi.
+        // Column: Widget. Widget терди ойдодон астыны коздой тизип берет
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          // children: Column дин proportysi.
+          children: [
             const Text(
               'You have pushed the button this many times:',
             ),
@@ -105,11 +109,17 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      // floatingActionButton: Scaffold дин proportysi.
+      // FloatingActionButton: Тегерек кнопка берет
       floatingActionButton: FloatingActionButton(
+        // onPressed: FloatingActionButton дин methodu.
         onPressed: _incrementCounter,
+        // tooltip: FloatingActionButton дин proportysi.
         tooltip: 'Increment',
+        // child: FloatingActionButton дин proportysi.
+        // Icon: Widget. icon ка чыгарып берет
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
